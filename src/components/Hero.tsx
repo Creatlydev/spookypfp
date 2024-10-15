@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className='overflow-hidden relative container mx-auto px-6 h-[calc(100vh-3rem)] my-6 rounded-3xl
+    <section className='overflow-hidden relative container mx-auto px-4 py-4 h-[calc(100vh-3rem)] my-6 rounded-3xl
       flex items-center pt-12 flex-col text-center text-balance shadow-box
       bg-[url(../public/hero-bg.jpg)] bg-cover bg-center bg-no-repeat
     '>
@@ -26,6 +26,13 @@ export default function Hero() {
         Transform your profile into a&nbsp;Halloween&nbsp;Nightmare!
       </p>
       <Button />
+
+      <footer className="flex w-full p-2 rounded-lg items-center justify-center bg-gradient-to-r from-cyan-700 to-blue-900 mt-auto">
+        Project developed by&nbsp;
+        <a className="font-semibold decoration-wavy decoration-1 underline" href="https://github.com/Creatlydev" target="_blank">Samir</a> 
+        &nbsp;For the 
+        &nbsp;<a className="font-semibold decoration-wavy decoration-1 underline" href="https://spooke-ia-cloudinary.netlify.app/" target="_blank">Cloudinary Hackathon</a>
+      </footer>
 
       {/* AVATARS EXAMPLES */}
       <div className="absolute bottom-0 inset-x-0 flex items-center justify-center">

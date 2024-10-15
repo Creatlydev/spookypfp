@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import {Rubik} from 'next/font/google'
 import "./globals.css";
+import Image from "next/image";
+import bats from '@/public/bats.png'
+import skull from '@/public/skull.png'
+import spider from '@/public/spider.png'
 
 const spookyBold = localFont({
   src: "./fonts/SpookypixelsBold.otf",
@@ -33,6 +37,31 @@ export default function RootLayout({
         className={`${spookyBold.variable} ${spookyOutline.variable} ${rubik.className} antialiased`}
       >
         {children}
+
+        {/* FIXED IMAGES */}
+            <Image
+              className="pointer-events-none hidden sm:block opacity-80 fixed top-0 left-0 -translate-y-[20%] -translate-x-[20%] mix-blend-multiply"
+              src={bats}
+              alt=""
+            />
+
+            <Image
+              className="pointer-events-none hidden sm:block opacity-80 fixed top-0 right-0 -translate-y-[50%] translate-x-[50%]"
+              src={spider}
+              alt=""
+            />
+
+            <Image
+              className="pointer-events-none hidden sm:block opacity-80 fixed bottom-0 translate-y-[50%] left-0 -translate-x-[50%]"
+              src={spider}
+              alt=""
+            />
+
+            <Image
+              className="pointer-events-none hidden sm:block opacity-80 w-80 fixed bottom-0 translate-y-[25%] right-0 translate-x-[50%] z-10"
+              src={skull}
+              alt=""
+            />
       </body>
     </html>
   );
