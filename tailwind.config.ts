@@ -11,7 +11,13 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        primary: '#FE2D2D',
+        darkgrey: '#272828'
       },
+
+      boxShadow: {
+        box: '-12px 12px 24px rgba(39, 40, 40, .3)'
+      }
     },
   },
   plugins: [],
