@@ -1,8 +1,15 @@
 import Button from "./Button";
+import avatarOne from '@/public/avatars/avatar-1.png'
+import avatarTwo from '@/public/avatars/avatar-2.png'
+import avatarThree from '@/public/avatars/avatar-3.png'
+import avatarFour from '@/public/avatars/avatar-4.png'
+import avatarFive from '@/public/avatars/avatar-5.png'
+import avatarSix from '@/public/avatars/avatar-6.png'
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className='container mx-auto px-6 h-[calc(100vh-3rem)] my-6 rounded-3xl
+    <section className='overflow-hidden relative container mx-auto px-6 h-[calc(100vh-3rem)] my-6 rounded-3xl
       flex items-center pt-12 flex-col text-center text-balance shadow-box
       bg-[url(../public/hero-bg.jpg)] bg-cover bg-center bg-no-repeat
     '>
@@ -19,6 +26,45 @@ export default function Hero() {
         Transform your profile into a&nbsp;Halloween&nbsp;Nightmare!
       </p>
       <Button />
+
+      {/* AVATARS EXAMPLES */}
+      <div className="absolute bottom-0 inset-x-0 flex items-center justify-center">
+        <Image
+          className="w-20 md:translate-x-[150%] lg:translate-x-[400%] xl:translate-x-[550%] 2xl:translate-x-[650%] absolute bottom-0 -translate-y-[200%] left-0 translate-x-[550%] mix-blend-screen"
+          src={avatarOne}
+          alt=""
+        />
+
+        <Image
+          className="w-20 absolute md:-translate-x-[150%] lg:-translate-x-[400%] xl:-translate-x-[550%] 2xl:-translate-x-[650%] bottom-0 -translate-y-[200%] right-0 -translate-x-[550%] mix-blend-screen"
+          src={avatarTwo}
+          alt=""
+        />
+
+        <Image
+          className="w-20 absolute md:translate-x-[100%] lg:translate-x-[350%] xl:translate-x-[500%] 2xl:translate-x-[600%] bottom-0 -translate-y-[350%] left-0 translate-x-[500%] mix-blend-screen"
+          src={avatarThree}
+          alt=""
+        />
+
+        <Image
+          className="w-20 absolute md:-translate-x-[100%] lg:-translate-x-[350%] xl:-translate-x-[500%] 2xl:-translate-x-[600%] bottom-0 -translate-y-[350%] right-0 -translate-x-[500%] mix-blend-screen"
+          src={avatarFour}
+          alt=""
+        />
+
+        <Image
+          className="w-20 absolute bottom-0 sm:hidden xl:block 2xl:translate-x-[520%] -translate-y-[220%] left-0 translate-x-[420%] mix-blend-screen"
+          src={avatarFive}
+          alt=""
+        />
+
+        <Image
+          className="w-20 absolute sm:hidden xl:block 2xl:-translate-x-[520%] bottom-0 -translate-y-[220%] right-0 -translate-x-[420%] mix-blend-screen"
+          src={avatarSix}
+          alt=""
+        />
+      </div>  
     </section>
   )
 }
