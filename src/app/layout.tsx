@@ -40,9 +40,10 @@ export default function RootLayout({
 
         {/* FIXED IMAGES */}
             <Image
-              className="pointer-events-none hidden sm:block opacity-80 fixed top-0 left-0 -translate-y-[20%] -translate-x-[20%] mix-blend-multiply"
+              className="pointer-events-none hidden sm:block opacity-80 fixed top-0 left-0 -translate-y-[20%] -translate-x-[20%]"
               src={bats}
               alt=""
+              priority
             />
 
             <Image

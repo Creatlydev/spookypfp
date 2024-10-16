@@ -2,19 +2,24 @@
 
 import { CldUploadWidget } from 'next-cloudinary';
 import { useCallback } from 'react';
+import { useRouter } from 'next/navigation'; // Cambiamos a next/navigation para usar el router en client components
 
 export default function UploadButton() {
-  const handleUploadSuccess = useCallback((result) => {
-    console.log(result)
-  }, []);
+  const router = useRouter(); // Inicializamos el router
 
-  const handleUploadAdded = useCallback((file, {widget}) => {
-    const { close }= widget
+  const handleUploadSuccess = useCallback((result) => {
+    const { public_id } = result.info;
+
+    // Redirigir a la página results pasando el public_id y secure_url
+    router.push(`/results?id=${public_id}`);
+  }, [router]);
+
+  const handleUploadAdded = useCallback((file, { widget }) => {
+    const { close } = widget;
     const allowedTypes = ['image/png', 'image/jpg', 'image/jpeg', 'image/webp'];
     if (!allowedTypes.includes(file.info.file.type)) {
       alert('Solo se permiten archivos de imagen (PNG, JPG, JPEG, WEBP).');
-      close()
-
+      close();
       return false;
     }
   }, []);
