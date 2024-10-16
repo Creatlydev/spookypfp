@@ -25,9 +25,10 @@ export default function Hero() {
       <p className="font-semibold text-2xl">
         Transform your profile into a&nbsp;Halloween&nbsp;Nightmare!
       </p>
+      
       <Button />
 
-      <footer className="flex w-full p-2 rounded-lg items-center justify-center bg-gradient-to-r from-cyan-700 to-blue-900 mt-auto">
+      <footer className="flex w-full p-2 rounded-lg items-center flex-wrap justify-center bg-gradient-to-r from-cyan-700 to-blue-900 mt-auto">
         Project developed by&nbsp;
         <a className="font-semibold decoration-wavy decoration-1 underline" href="https://github.com/Creatlydev" target="_blank">Samir</a> 
         &nbsp;For the 
