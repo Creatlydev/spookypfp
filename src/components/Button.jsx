@@ -48,7 +48,7 @@ export default function UploadButton() {
           return (
             <button 
               className='bg-green-500 text-darkgrey font-semibold py-2 pb-3 px-4 rounded-3xl shadow-[inset_0_-4px_rgb(0,105,0)]
-              hover:shadow-[inset_0_-6px_rgb(0,105,0)] active:shadow-[inset_0_-1px_rgb(0,105,0)] transition-shadow'
+              hover:shadow-[inset_0_-6px_rgb(0,105,0)] hover:-translate-y-1 active:shadow-[inset_0_-1px_rgb(0,105,0)] transition-all'
               onClick={handleClick}
             >
               Create your spooky avatar
