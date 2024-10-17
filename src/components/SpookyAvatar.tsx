@@ -66,13 +66,14 @@ const SpookyAvatar: React.FC<CustomAvatarProps> = ({id}) => {
     <>
       <CustomAvatar rounded={rounded} setRounded={setRounded} updatePrompts={changePrompts} />
 
-        {loading && <div className="rounded-full w-[250px] aspect-square animate-pulse bg-darkgrey" />}
+        {loading && <div className="rounded-full w-[250px] aspect-square animate-pulse bg-gray-600" />}
 
         {
           prompt && promptScene && (
             <CldImage
               alt='Spooky image generated'
               width={250}
+              className={`${loading ? 'h-0 w-0' : 'h-auto'}`}
               height={250}
               src={id}
               crop={{
@@ -97,6 +98,7 @@ const SpookyAvatar: React.FC<CustomAvatarProps> = ({id}) => {
                 prompt: promptScene,
                 seed: 5
               }}
+              
               format='png'
               onLoad={() => setLoading(false)}
               onError={() => console.log('Error inesperado')}
