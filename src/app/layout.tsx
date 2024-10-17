@@ -39,30 +39,30 @@ export default function RootLayout({
         {children}
 
         {/* FIXED IMAGES */}
-            <Image
-              className="pointer-events-none hidden sm:block opacity-80 fixed top-0 left-0 -translate-y-[20%] -translate-x-[20%]"
-              src={bats}
-              alt=""
-              priority
-            />
+          <Image
+            className="pointer-events-none hidden sm:block opacity-80 fixed top-0 left-0 -translate-y-[20%] -translate-x-[20%]"
+            src={bats}
+            alt=""
+            priority
+          />
 
-            <Image
-              className="pointer-events-none hidden sm:block opacity-80 fixed top-0 right-0 -translate-y-[50%] translate-x-[50%]"
-              src={spider}
-              alt=""
-            />
+          <Image
+            className="pointer-events-none hidden sm:block opacity-80 fixed top-0 right-0 -translate-y-[50%] translate-x-[50%]"
+            src={spider}
+            alt=""
+          />
 
-            <Image
-              className="pointer-events-none hidden sm:block opacity-80 fixed bottom-0 translate-y-[50%] left-0 -translate-x-[50%]"
-              src={spider}
-              alt=""
-            />
+          <Image
+            className="pointer-events-none hidden sm:block opacity-80 fixed bottom-0 translate-y-[50%] left-0 -translate-x-[50%]"
+            src={spider}
+            alt=""
+          />
 
-            <Image
-              className="pointer-events-none hidden sm:block opacity-80 w-80 fixed bottom-0 translate-y-[25%] right-0 translate-x-[50%] z-10"
-              src={skull}
-              alt=""
-            />
+          <Image
+            className="pointer-events-none hidden sm:block opacity-80 w-80 fixed bottom-0 translate-y-[25%] right-0 translate-x-[50%] z-10"
+            src={skull}
+            alt=""
+          />
       </body>
     </html>
   );

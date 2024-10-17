@@ -3,9 +3,11 @@
 import { useSearchParams } from 'next/navigation';
 import { CldImage } from "next-cloudinary";
 import { useState, useEffect } from 'react';
+import CustomAvatar from '@/components/CustomAvatar';
+import Link from 'next/link';
 
 const prompts = [
-  'A hooded figure with a pale face bloody marks dark eyes and a haunting expression',
+  'A hooded male with a pale face bloody marks dark eyes and a haunting expression',
   "A terrifying zombie figure with a pale face deep cuts bloody marks and dark hollow eyes staring with a deadly gaze",
   "A gruesome zombie with a pale lifeless face blood dripping from knife wounds and an unsettling stare",
   "A horrifying undead figure with knives stabbed into its body blood splattered across its pale face and eyes filled with terror",
@@ -16,7 +18,20 @@ const prompts = [
   "A horrifying male undead with bloodshot eyes deep scars across his face and a wicked grin stained with blood",
   "A grotesque male zombie with decayed flesh knives piercing his chest and blood dripping from his lifeless eyes",
   "A terrifying male zombie with a mangled face blood streaming down his hollowed cheeks and knives stuck in his chest",
-  "A blood-soaked male figure with sunken eyes a mutilated face and deep knife wounds all over his body"
+  "A bloodsoaked male figure with sunken eyes a mutilated face and deep knife wounds all over his body"
+];
+
+const backgroundPrompts = [
+  "A dark forest drenched in blood with twisted trees and eerie shadows",
+  "A sinister forest filled with puddles of blood and ominous fog creeping between the trees",
+  "A haunted forest where blood flows like a river under the gnarled branches",
+  "A chilling woodland covered in a thick layer of blood with ghostly figures lurking",
+  "An abandoned forest shrouded in darkness with bloodied leaves scattered across the ground",
+  "A foreboding forest with blood-red flowers blooming amidst the shadows",
+  "A nightmarish forest illuminated by a ghostly light reflecting off pools of blood",
+  "A desolate woodland where blood drips from the branches creating a macabre atmosphere",
+  "A cursed forest echoing with the cries of the lost surrounded by rivers of blood",
+  "A terrifying forest with blood-soaked soil and dark creatures lurking in the underbrush"
 ];
 
 
@@ -25,33 +40,47 @@ export default function ResultsPage() {
   const id = searchParams.get('id');
   const [rounded, setRounded] = useState('max');
   const [prompt, setPrompt] = useState('');
+  const [bg, setBg] = useState('')
+  const [regenerate, setRegenerate] = useState(true)
 
   useEffect(() => {
     const randomPrompt = prompts[Math.floor(Math.random() * prompts.length)];
+    const randomBackground = backgroundPrompts[Math.floor(Math.random() * backgroundPrompts.length)];
     setPrompt(randomPrompt);
-  }, []);
+    setBg(randomBackground)
+    setRegenerate(false)
+  }, [regenerate]);
 
   if (!id) {
     return <div>No image data available.</div>;
   }
-  console.log(prompt)
 
   return (
-    <>
-      <header className='h-20 text-center flex items-center justify-center'>
-        <h1>Here is your spooky avatar!</h1>
+    <div className='overflow-hidden flex flex-col gap-12 h-[calc(100vh-3rem)] my-6 p-6 z-10
+    shadow-box bg-[url(../public/hero-result.jpg)] bg-cover bg-center bg-no-repeat rounded-3xl bg-darkgrey/70 bg-blend-multiply'
+    >
+
+      <header className="relative z-10 flex w-full p-2 rounded-lg items-center flex-wrap justify-center bg-gradient-to-r from-cyan-700 to-blue-900 mt-auto">
+        <Link href={'/'}>
+          Back To Home
+        </Link>
       </header>
 
-      <main className='h-[calc(100vh-80px)] flex items-center justify-start flex-col gap-20 pt-20'>
-        <select name="rounded" value={rounded} onChange={(e) => setRounded(e.target.value)}>
-          <option value="max">Round</option>
-          <option value="0">Square</option>
-          <option value="25">Round corners</option>
-          <option value="50">Extra rounded</option>
-        </select>
+      <div className="relative text-center">
+        <h1 className="text-4xl sm:text-6xl relative z-10 font-[family-name:var(--spooky-bold)] mb-12">
+          Customize your Avatar
+        </h1>
+
+        <span className="absolute inset-0 top-2 text-primary text-4xl sm:text-6xl font-[family-name:var(--spooky-bold)] mb-12">
+          Customize your Avatar
+        </span>
+      </div>
+      <main className='flex-1 flex items-center justify-start flex-col gap-20 relative z-10'>
+
+        <CustomAvatar rounded={rounded} setRounded={setRounded} setRegenerate={setRegenerate} />
 
         {
-          prompt && (
+          prompt && bg && (
             <CldImage
               alt='Spooky image generated'
               width={250}
@@ -76,7 +105,7 @@ export default function ResultsPage() {
                 preserveGeometry: true,
               }}
               replaceBackground={{
-                prompt: 'forest with a lot blood',
+                prompt: bg,
                 seed: 5
               }}
               format='png'
@@ -84,6 +113,6 @@ export default function ResultsPage() {
           )
         }
       </main>
-    </>
+    </div>
   );
 }
