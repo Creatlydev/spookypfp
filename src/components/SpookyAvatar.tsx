@@ -56,6 +56,10 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
     setPromptScene(randomScenePrompt)
   }, [])
 
+  const handleError = useCallback(() => {
+      alert('Ha ocurrido un error inesperado')
+  }, [])
+
   useEffect(() => {
     changePrompts()
   }, [changePrompts]);
@@ -103,7 +107,7 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
               
               format='png'
               onLoad={() => setLoading(false)}
-              onError={() => console.log('Error inesperado')}
+              onError={handleError}
           />
           )
         }
