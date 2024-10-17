@@ -5,10 +5,10 @@ import React from 'react';
 interface CustomAvatarProps {
   rounded: string;
   setRounded: (value: string) => void;
-  setRegenerate: (value: boolean) => void;
+  updatePrompts: () => void;
 }
 
-const CustomAvatar: React.FC<CustomAvatarProps> = ({ rounded, setRounded, setRegenerate }) => {
+const CustomAvatar: React.FC<CustomAvatarProps> = ({ rounded, setRounded, updatePrompts }) => {
   return (
     <section className='flex items-center justify-center'>
       <select name="rounded" value={rounded} onChange={(e) => setRounded(e.target.value)}>
@@ -18,7 +18,7 @@ const CustomAvatar: React.FC<CustomAvatarProps> = ({ rounded, setRounded, setReg
         <option value="50">Extra rounded</option>
       </select>
 
-      <button onClick={() => setRegenerate(true)}>
+      <button onClick={updatePrompts}>
         regenerate
       </button>
     </section>

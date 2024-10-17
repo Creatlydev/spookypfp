@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import {Rubik} from 'next/font/google'
+import { Rubik } from 'next/font/google'
 import "./globals.css";
 import Image from "next/image";
 import bats from '@/public/bats.png'
