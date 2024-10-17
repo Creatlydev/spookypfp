@@ -1,4 +1,3 @@
-import Button from "./Button";
 import avatarOne from '@/public/avatars/avatar-1.png'
 import avatarTwo from '@/public/avatars/avatar-2.png'
 import avatarThree from '@/public/avatars/avatar-3.png'
@@ -6,6 +5,7 @@ import avatarFour from '@/public/avatars/avatar-4.png'
 import avatarFive from '@/public/avatars/avatar-5.png'
 import avatarSix from '@/public/avatars/avatar-6.png'
 import Image from "next/image";
+import UploadButton from "./UploadButton";
 
 export default function Hero() {
   return (
@@ -26,7 +26,7 @@ export default function Hero() {
         Transform your profile into a&nbsp;Halloween&nbsp;Nightmare!
       </p>
       
-      <Button />
+      <UploadButton />
 
       <footer className="flex w-full p-2 rounded-lg items-center flex-wrap justify-center bg-gradient-to-r from-cyan-700 to-blue-900 mt-auto">
         Project developed by&nbsp;
