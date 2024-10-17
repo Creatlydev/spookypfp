@@ -3,6 +3,8 @@
 import { CldImage } from "next-cloudinary";
 import CustomAvatar from "./CustomAvatar";
 import { useCallback, useEffect, useState } from "react";
+import animationData from '@/public/lotties/boo-ghost.json'
+import LottieAnimation from "./LottieAnimation";
 
 interface CustomAvatarProps {
   id: string;
@@ -41,7 +43,7 @@ const choosePromptFrom = (array: string[]): string => {
 }
 
 
-const SpookyAvatar: React.FC<CustomAvatarProps> = ({id}) => {
+export default function SpookyAvatar ({id}: CustomAvatarProps) {
   const [rounded, setRounded] = useState('max');
   const [loading, setLoading] = useState(false)
   const [prompt, setPrompt] = useState('');
@@ -66,7 +68,7 @@ const SpookyAvatar: React.FC<CustomAvatarProps> = ({id}) => {
     <>
       <CustomAvatar rounded={rounded} setRounded={setRounded} updatePrompts={changePrompts} />
 
-        {loading && <div className="rounded-full w-[250px] aspect-square animate-pulse bg-gray-600" />}
+        {loading && <LottieAnimation animationData={animationData} />}
 
         {
           prompt && promptScene && (
@@ -108,5 +110,3 @@ const SpookyAvatar: React.FC<CustomAvatarProps> = ({id}) => {
     </>
   )
 }
-
-export default SpookyAvatar

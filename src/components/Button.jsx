@@ -2,15 +2,14 @@
 
 import { CldUploadWidget } from 'next-cloudinary';
 import { useCallback } from 'react';
-import { useRouter } from 'next/navigation'; // Cambiamos a next/navigation para usar el router en client components
+import { useRouter } from 'next/navigation';
 
 export default function UploadButton() {
-  const router = useRouter(); // Inicializamos el router
+  const router = useRouter();
 
   const handleUploadSuccess = useCallback((result) => {
     const { public_id } = result.info;
 
-    // Redirigir a la página results pasando el public_id y secure_url
     router.push(`/results?id=${public_id}`);
   }, [router]);
 
