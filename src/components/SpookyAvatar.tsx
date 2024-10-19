@@ -3,7 +3,7 @@
 import { CldImage } from "next-cloudinary";
 import CustomAvatar from "./CustomAvatar";
 import { useCallback, useEffect, useState } from "react";
-import animationData from '@/public/lotties/boo-ghost.json'
+import animationData from '@/public/lotties/ghost.json'
 import LottieAnimation from "./LottieAnimation";
 
 interface CustomAvatarProps {
@@ -47,17 +47,21 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
   const [rounded, setRounded] = useState(true);
   const [loading, setLoading] = useState(false)
   const [prompt, setPrompt] = useState('');
+  const [error, setError] = useState<boolean>(false)
   const [promptScene, setPromptScene] = useState('')
 
   const changePrompts = useCallback(() => {
     const randomPrompt = choosePromptFrom(prompts);
     const randomScenePrompt = choosePromptFrom(backgroundPrompts);
+    setError(false)
     setPrompt(randomPrompt);
     setPromptScene(randomScenePrompt)
   }, [])
 
-  const handleError = useCallback(() => {
-      alert('Ha ocurrido un error inesperado')
+  const handleError = useCallback((e: Error) => {
+    console.log(e)
+    setError(true)
+    setLoading(false)
   }, [])
 
   useEffect(() => {
@@ -70,17 +74,21 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
 
   return (
     <>
-      <CustomAvatar disabled={loading} rounded={rounded} setRounded={setRounded} updatePrompts={changePrompts} />
+      <CustomAvatar disabled={loading} error={error} rounded={rounded} setRounded={setRounded} updatePrompts={changePrompts} />
 
         {loading && <LottieAnimation animationData={animationData} />}
 
-        {loading && (
+        {(loading || error) && (
           <div className="text-center">
-            <p className="text-primary sm:text-xl relative -top-8 animate-pulse">
-              One moment please ...
+            <p className={`text-primary sm:text-xl ${!error && 'animate-pulse'}`}>
+              {
+                error ? 'BooH! An error has ocurred' : 'One moment please ...'
+              }
             </p>
-            <p className="text-primary sm:text-2xl font-semibold relative -top-8">
-              If I were you I prepare for the worst
+            <p className="text-primary sm:text-2xl font-semibold">
+              {
+                error ? 'please try to regenerate' : 'If I were you I prepare for the worst'
+              }
             </p>
           </div>
         )}
@@ -90,7 +98,7 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
             <CldImage
               alt='Spooky image generated'
               width={250}
-              className={`${loading ? 'h-0 w-0' : 'h-auto'}`}
+              className={`${loading || error ? 'h-0 w-0' : 'h-auto'} transition-all`}
               height={250}
               src={id}
               quality='auto:low'
