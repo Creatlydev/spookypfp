@@ -24,7 +24,7 @@ export const useUploadHandlers = () => {
 
   const handleUploadSuccess = useCallback((result: UploadResult) => {
     const { public_id } = result.info;
-    router.push(`/results?id=${public_id}`);
+    router.push(`/results?id=${public_id}`)
   }, [router]);
 
   const handleUploadAdded = useCallback((file: UploadFile, { widget }: { widget: Widget }) => {

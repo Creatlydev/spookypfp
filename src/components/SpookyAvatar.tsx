@@ -44,7 +44,7 @@ const choosePromptFrom = (array: string[]): string => {
 
 
 export default function SpookyAvatar ({id}: CustomAvatarProps) {
-  const [rounded, setRounded] = useState('max');
+  const [rounded, setRounded] = useState(true);
   const [loading, setLoading] = useState(false)
   const [prompt, setPrompt] = useState('');
   const [promptScene, setPromptScene] = useState('')
@@ -70,9 +70,20 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
 
   return (
     <>
-      <CustomAvatar rounded={rounded} setRounded={setRounded} updatePrompts={changePrompts} />
+      <CustomAvatar disabled={loading} rounded={rounded} setRounded={setRounded} updatePrompts={changePrompts} />
 
         {loading && <LottieAnimation animationData={animationData} />}
+
+        {loading && (
+          <div className="text-center">
+            <p className="text-primary sm:text-xl relative -top-8 animate-pulse">
+              One moment please ...
+            </p>
+            <p className="text-primary sm:text-2xl font-semibold relative -top-8">
+              If I were you I prepare for the worst
+            </p>
+          </div>
+        )}
 
         {
           prompt && promptScene && (
@@ -82,6 +93,7 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
               className={`${loading ? 'h-0 w-0' : 'h-auto'}`}
               height={250}
               src={id}
+              quality='auto:low'
               crop={{
                 aspectRatio: 1,
                 type:"thumb",
@@ -89,7 +101,7 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
                 width: 250,
                 source: true
               }}
-              radius={rounded}
+              radius={rounded ? 'max' : '0'}
               background='transparent'
               effects={[{
                 outline: '5',
@@ -98,7 +110,7 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
               replace={{
                 from: 'people',
                 to: prompt,
-                preserveGeometry: true,
+                preserveGeometry: true
               }}
               replaceBackground={{
                 prompt: promptScene,
@@ -111,6 +123,7 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
           />
           )
         }
+
     </>
   )
 }

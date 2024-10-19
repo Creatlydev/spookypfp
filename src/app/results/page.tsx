@@ -33,7 +33,7 @@ export default function ResultsPage() {
           Customize your Avatar
         </span>
       </div>
-      <main className='flex-1 flex items-center justify-start flex-col gap-20 relative z-10'>
+      <main className='flex-1 flex items-center justify-start flex-col gap-16 relative z-10'>
         <SpookyAvatar id={id} />
       </main>
     </div>

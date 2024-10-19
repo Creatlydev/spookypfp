@@ -1,26 +1,44 @@
 'use client';
 
 import { CldUploadWidget } from 'next-cloudinary';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import Button from './Button';
 import { useUploadHandlers } from '@/hooks/useUploadHandlers';
+import Image from 'next/image';
+import logoImg from '@/public/logo.png'
 
-export default function UploadButton() {
+
+interface UploadResult {
+  info: {
+    public_id: string;
+  };
+}
+
+interface UploadFile {
+  info : {
+    file: {
+      type: string;
+    };
+  }
+}
+
+export default function UploadButton({children}: {children: ReactNode}) {
   const { handleUploadSuccess, handleUploadAdded } = useUploadHandlers();
 
   return (
     <div className='mt-10'>
       <CldUploadWidget
-        uploadPreset='unsigned-images'
+        uploadPreset='spooky_pfp'
         options={{
           maxFiles: 1,
           multiple: false,
           sources: ['local'],
           resourceType: 'image',
-          clientAllowedFormats: ['png', 'jpg', 'jpeg', 'webp'],
+          clientAllowedFormats: ['png', 'jpg', 'jpeg', 'webp'],          
         }}
-        onSuccess={handleUploadSuccess}
-        onUploadAdded={handleUploadAdded}
+        onSuccess={(result) => handleUploadSuccess(result as UploadResult)}
+        onUploadAdded={(file, {widget}) => handleUploadAdded(file as unknown as UploadFile, {widget})}
+        onError={() => alert('Error an ocurred')}
       >
         {({ open }) => {
           const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -30,7 +48,8 @@ export default function UploadButton() {
 
           return (
             <Button onClick={handleClick}>
-              Create your spooky avatar
+              <Image className='h-8 w-8 flex-shrink-0' src={logoImg} alt="logo image" />
+              {children}
             </Button>
           )
         }}

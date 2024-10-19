@@ -26,7 +26,9 @@ export default function Hero() {
         Transform your profile into a&nbsp;Halloween&nbsp;Nightmare!
       </p>
       
-      <UploadButton />
+      <UploadButton>
+        <span>Upload your photo</span>
+      </UploadButton>
 
       <footer className="flex w-full p-2 rounded-lg items-center flex-wrap justify-center bg-gradient-to-r from-cyan-700 to-blue-900 mt-auto">
         Project developed by&nbsp;
