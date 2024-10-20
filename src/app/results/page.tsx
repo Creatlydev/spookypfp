@@ -25,7 +25,7 @@ export default function ResultsPage() {
       </header>
 
       <div className="relative text-center">
-        <h1 className="text-4xl sm:text-6xl relative z-10 font-[family-name:var(--spooky-bold)] mb-12">
+        <h1 className="text-4xl sm:text-6xl relative z-10 font-[family-name:var(--spooky-bold)] mb-8 md:mb-12">
           Customize your Avatar
         </h1>
 
@@ -33,7 +33,7 @@ export default function ResultsPage() {
           Customize your Avatar
         </span>
       </div>
-      <main className='flex-1 flex items-center justify-start flex-col gap-16 relative z-10'>
+      <main className='flex-1 flex items-center justify-start flex-col gap-12 md:gap-14 relative z-10'>
         <SpookyAvatar id={id} />
       </main>
     </div>

@@ -27,6 +27,6 @@ body {
   @apply bg-primary
 }
 
-.filepond--credits {
-  display: none;
+.avatars {
+  scrollbar-width: none;
 }
