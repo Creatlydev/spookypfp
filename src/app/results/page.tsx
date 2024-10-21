@@ -3,6 +3,8 @@
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import SpookyAvatar from '@/components/SpookyAvatar';
+import logoImg from '@/public/logo.png'
+import Image from 'next/image';
 
 
 export default function ResultsPage() {
@@ -14,13 +16,17 @@ export default function ResultsPage() {
   }
 
   return (
-    <div className='overflow-hidden flex flex-col gap-12 h-[calc(100vh-3rem)] my-6 p-6 z-10
+    <div className='overflow-hidden flex flex-col gap-12 h-[calc(100vh-3rem)] my-6 p-6 pt-0 z-10
     shadow-box bg-[url(../public/hero-result.jpg)] bg-cover bg-center bg-no-repeat rounded-3xl bg-darkgrey/70 bg-blend-multiply'
     >
 
-      <header className="relative z-10 flex w-full p-2 rounded-lg items-center flex-wrap justify-center bg-gradient-to-r from-cyan-700 to-blue-900 mt-auto">
-        <Link href={'/'}>
-          Back To Home
+      <header className="relative z-10 flex w-full rounded-lg items-center justify-center mt-auto">
+        <Link 
+          className='bg-darkgrey/95 font-[family-name:var(--spooky-outline)] p-4 px-8 rounded-b-2xl border-b-4 border-gray-950 flex items-center gap-2 text-2xl'
+          href={'/'}>
+          <span>Spooky</span>
+          <Image className='h-8 w-8 flex-shrink-0' src={logoImg} alt="logo image" />
+          <span>Avatar</span>
         </Link>
       </header>
 
