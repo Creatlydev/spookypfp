@@ -25,7 +25,7 @@ const rubik = Rubik({
 
 export async function generateMetadata() {
   return {
-    title: 'SpookyPFP: 🎃 Create your Spooky Avatar for Halloween',
+    title: 'SpookyPFP - Create your Spooky Avatar for Halloween',
     description: 'Generate personalized spooky avatars with eerie effects for the Halloween season!',
     openGraph: {
       images: [
@@ -33,6 +33,8 @@ export async function generateMetadata() {
           src: 'home-spooky_pfp_tjnzdu',
         }),
       ],
+      author: 'Yangua Ruiz Samir',
+      publishedTime: new Date().toISOString()
     },
   }
 }
