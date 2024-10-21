@@ -1,5 +1,9 @@
+'use client'
+
 import { CldImage } from "next-cloudinary"
 import { CloudDownload } from "./Icons"
+import { useState } from "react"
+import { downloadUrl } from "@/lib/utils"
 
 interface Props {
   loading: boolean
@@ -15,6 +19,20 @@ interface Props {
 
 
 export default function ImageGenerate({loading, error, id, rounded, setLoading, handleError, prompt, promptScene, effects}: Props) {
+  const [imageURL, setImageURL] = useState<string | null>(null)
+
+  const handleDownload = async () => {
+    if (imageURL) {
+      try {
+        await downloadUrl(imageURL, 'spooky-avatar.png', { downloadBlob: true });
+      } catch {
+        alert("An ocurred error while image downloading");
+      }
+    } else {
+      alert("Image URL is not available.");
+    }
+  }
+
   return (
     <div className="relative group">
       <CldImage
@@ -49,12 +67,20 @@ export default function ImageGenerate({loading, error, id, rounded, setLoading, 
         {...effects}
         
         format='png'
-        onLoad={() => setLoading(false)}
+        onLoad={(event) => {
+          const imageURL = event.currentTarget.src
+          setImageURL(imageURL)
+          setLoading(false)
+        }}
         onError={handleError}
       />
 
       <div className="scale-0 group-hover:scale-100 transition-transform absolute inset-0 rounded-full backdrop-blur-sm bg-primary/50 grid place-content-center">
-        <button title="download" className="transition-transform hover:scale-110 active:scale-100 grid place-content-center h-14 w-14 shadow-white rounded-full shadow-2xl bg-primary text-white">
+        <button 
+          title="download" 
+          className="transition-transform hover:scale-110 active:scale-100 grid place-content-center h-14 w-14 shadow-white rounded-full shadow-2xl bg-primary text-white"
+          onClick={handleDownload}  
+        >
           <CloudDownload width={32} height={32} />
         </button>
       </div>
