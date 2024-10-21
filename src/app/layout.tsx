@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Rubik } from 'next/font/google'
 import "./globals.css";
@@ -6,6 +5,8 @@ import Image from "next/image";
 import bats from '@/public/bats.png'
 import skull from '@/public/skull.png'
 import spider from '@/public/spider.png'
+import { getCldOgImageUrl } from "next-cloudinary";
+import { Analytics } from '@vercel/analytics/react';
 
 const spookyBold = localFont({
   src: "./fonts/SpookypixelsBold.otf",
@@ -21,10 +22,20 @@ const rubik = Rubik({
   weight: 'variable'
 })
 
-export const metadata: Metadata = {
-  title: "Spooky-PFP: 🎃 Crea Avatares Espeluznantes para Halloween",
-  description: "Crea avatares terroríficos para Halloween con AvatarTerror. Convierte tu foto en un vampiro, fantasma o monstruo con filtros espeluznantes. ¡Es fácil, rápido y aterradoramente divertido!",
-};
+
+export async function generateMetadata() {
+  return {
+    title: 'SpookyPFP: 🎃 Create your Spooky Avatar for Halloween',
+    description: 'Generate personalized spooky avatars with eerie effects for the Halloween season!',
+    openGraph: {
+      images: [
+        getCldOgImageUrl({
+          src: 'home-spooky_pfp_tjnzdu',
+        }),
+      ],
+    },
+  }
+}
 
 export default function RootLayout({
   children,
@@ -63,6 +74,8 @@ export default function RootLayout({
             src={skull}
             alt=""
           />
+
+          <Analytics />
       </body>
     </html>
   );
