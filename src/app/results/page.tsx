@@ -1,13 +1,21 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import SpookyAvatar from '@/components/SpookyAvatar';
-import logoImg from '@/public/logo.png'
+import logoImg from '@/public/logo.png';
 import Image from 'next/image';
 
-
 export default function ResultsPage() {
+  return (
+    <Suspense fallback={<div className='text-3xl text-center md:text-5xl font-semibold font-[family-name:var(--spooky-outline)] grid place-content-center h-screen w-screen'>Uploading Photo...</div>}>
+      <ResultsContent />
+    </Suspense>
+  );
+}
+
+function ResultsContent() {
   const searchParams = useSearchParams();
   const id = searchParams.get('id');
 
@@ -16,7 +24,7 @@ export default function ResultsPage() {
   }
 
   return (
-    <div className='overflow-hidden flex flex-col gap-12 h-[calc(100vh-3rem)] my-6 p-6 pt-0 z-10
+    <div className='overflow-hidden flex flex-col gap-8 h-[calc(100vh-3rem)] my-6 p-6 pt-0 z-10
     shadow-box bg-[url(../public/hero-result.jpg)] bg-cover bg-center bg-no-repeat rounded-3xl bg-darkgrey/70 bg-blend-multiply'
     >
 
