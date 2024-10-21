@@ -47,7 +47,7 @@ function ResultsContent() {
           Customize your Avatar
         </span>
       </div>
-      <main className='flex-1 flex items-center justify-start flex-col gap-12 md:gap-14 relative z-10'>
+      <main className='flex-1 flex items-center justify-start flex-col gap-8 md:gap-14 relative z-10'>
         <SpookyAvatar id={id} />
       </main>
     </div>
