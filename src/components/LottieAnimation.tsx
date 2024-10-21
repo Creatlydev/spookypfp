@@ -12,7 +12,7 @@ export default function LottieAnimation({ animationData }: LottieAnimationProps)
       <Lottie
         animationData={animationData}
         loop={true}
-        style={{ width: 250, height: 250 }}
+        style={{ width: 200, height: 200 }}
       />
     </div>
   );

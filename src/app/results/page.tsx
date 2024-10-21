@@ -24,7 +24,7 @@ function ResultsContent() {
   }
 
   return (
-    <div className='overflow-hidden flex flex-col gap-8 h-[calc(100vh-3rem)] my-6 p-6 pt-0 z-10
+    <div className='overflow-hidden flex flex-col gap-8 h-[calc(100vh-3rem)] my-6 z-10
     shadow-box bg-[url(../public/hero-result.jpg)] bg-cover bg-center bg-no-repeat rounded-3xl bg-darkgrey/70 bg-blend-multiply'
     >
 
@@ -39,7 +39,7 @@ function ResultsContent() {
       </header>
 
       <div className="relative text-center">
-        <h1 className="text-4xl sm:text-6xl relative z-10 font-[family-name:var(--spooky-bold)] mb-8 md:mb-12">
+        <h1 className="text-4xl sm:text-6xl relative z-10 font-[family-name:var(--spooky-bold)]">
           Customize your Avatar
         </h1>
 

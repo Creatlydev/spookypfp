@@ -34,11 +34,11 @@ export default function ImageGenerate({loading, error, id, rounded, setLoading, 
   }
 
   return (
-    <div className="relative group">
+    <div className="relative group flex-shrink-0">
       <CldImage
         alt='Spooky image generated'
         width={250}
-        className={`${loading || error ? 'h-0 w-0' : ''} transition-all`}
+        className={`${loading || error ? 'h-0 w-0' : 'w-56 h-56'} transition-all`}
         height={250}
         src={id}
         quality='auto:low'
