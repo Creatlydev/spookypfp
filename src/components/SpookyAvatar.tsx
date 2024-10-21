@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import animationData from '@/public/lotties/ghost.json'
 import LottieAnimation from "./LottieAnimation";
 import Link from "next/link";
-import { backgroundPrompts, pokemonPrompts, prompts, skullPrompts, VERSION } from "@/consts";
+import { backgroundPrompts, ghostPrompts, prompts, skullPrompts, VERSION } from "@/consts";
 import ImageGenerate from "./ImageGenerate";
 
 interface CustomAvatarProps {
@@ -37,7 +37,7 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
   }, [])
 
   const changeVersion = useCallback((version: string) => {
-    const spookyVersion = version === VERSION.POKEMON ? pokemonPrompts : skullPrompts
+    const spookyVersion = version === VERSION.GHOST ? ghostPrompts : skullPrompts
     const randomPrompt = choosePromptFrom(prompt, spookyVersion)
     setError(false)
     setPrompt(randomPrompt)

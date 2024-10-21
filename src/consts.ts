@@ -1,5 +1,5 @@
 export const VERSION: Record<string, string> = {
-  POKEMON: 'pokemon',
+  GHOST: 'ghost',
   SKULL: 'skull'
 }
 
@@ -46,16 +46,15 @@ export const skullPrompts = [
   "A bloodstained male skull figure with hollow eyes a mutilated skull and deep knife wounds all over its body"
 ];
 
-export const pokemonPrompts = [
-  'A shadowy figure resembling Pikachu with crackling dark energy surrounding its body and red glowing eyes peering from the darkness',
-  'A terrifying version of Charizard with tattered wings flames that burn black and purple and skeletal features visible through its scorched skin',
-  'A haunting Squirtle with hollow glowing eyes cracked shell with dark liquid oozing out and eerie water rippling around it',
-  'A sinister Gengar with a wide menacing grin its body flickering like a ghostly flame surrounded by cursed shadows that stretch endlessly',
-  'A twisted version of Mewtwo with pale skin and blackened veins hovering menacingly as dark psychic energy pulses around its head its eyes filled with cold malevolence',
-  'A zombie like Blastoise with cracked cannons leaking black sludge and eyes glowing with an otherworldly blue flame',
-  'A frightening Lucario with spikes that are cracked and splintered and a shadowy aura wrapping around its body with eyes glowing crimson in the night',
-  'A ghostly version of Eevee with fur that fades into mist surrounded by eerie fog and a faint echo of distant howls',
-  'A decaying Snorlax covered in vines and dirt with hollow eyes and skeletal hands reaching from beneath the earth',
-  'A corrupted Jigglypuff with empty soulless eyes and a dissonant song that echoes through the air causing nightmares to all who hear it',
-  'A horrifying Venusaur with darkened vines sprouting thorns its flower wilted and dripping black poison with glowing yellow eyes and an eerie mist rising around it'
+export const ghostPrompts = [
+  'A hooded male with a ghostly face glowing hollow eyes and an eerie aura',
+  'A terrifying ghost figure with translucent skin glowing eyes staring with a chilling gaze',
+  'A gruesome ghost with a twisted face mist swirling around it and an unsettling presence',
+  'A horrifying spectral figure with chains hanging from its body glowing eyes filled with terror',
+  'A monstrous ghostly figure with a haunting glow mist seeping from its body and a terrifying expression',
+  'A grotesque ghost with tattered robes glowing eyes and an ethereal mist surrounding its form',
+  'A male ghost figure with a twisted face glowing eyes and mist trailing from his ethereal body',
+  'A horrifying male ghost with sunken glowing eyes and a wicked smile that sends chills',
+  'A grotesque male ghost with a translucent body glowing eyes and chains wrapping around its form',
+  'A bloodcurdling male ghost with a twisted face mist swirling around him and glowing hollow eyes'
 ];

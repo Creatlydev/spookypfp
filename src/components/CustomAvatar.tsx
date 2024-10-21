@@ -45,9 +45,9 @@ const CustomAvatar: React.FC<CustomAvatarProps> = ({ rounded, changeVersion, set
 
         <button
           className={`flex-grow basis-32 max-w-36 flex-shrink-0 text-sm bg-primary p-2 px-3 rounded-[100vh] active:scale-90 transition-transform border-b-4 border-b-orange-900 hover:border-none ${disabled || error ? 'border-none bg-orange-900 pointer-events-none' : ''}`}
-          onClick={() => changeVersion(VERSION.POKEMON)}
+          onClick={() => changeVersion(VERSION.GHOST)}
         >
-          Pokemon Version
+          Ghost Version
         </button>
       </div>
     </section>
