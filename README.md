@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎃 SpookyPFP 👻
 
-## Getting Started
+Welcome to **SpookyPFP**! 🖼️ This is a web application maked to the **Cloudinary Hackathon 2024** where you can generate spooky, personalized avatars, perfect for the Halloween season or whenever you need a creepy touch for your profile. 💀
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Main Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- 🖼️ **Customizable Avatar Generation:** Create avatars with spooky effects and themed backgrounds.
+- 💻 **Modern Technologies:** Built with **Next.js**, **React**, and **TypeScript**.
+- 📦 **Cloudinary Integration:** Utilizes Cloudinary for real-time image upload, transformation, and optimization.
+- 🎨 **Editing Options:** Choose between options like background changes, adding cartoon effects, or shape adjustments (round or square).
+- 💾 **Download Your Images:** Save your creations directly to your device with one click.
+- 🌀 **Interactive Animations:** Engaging and fun animations while images are generated.
+- 🌐 **Fast and Optimized:** Quickly load and transform images, ideal for all device types.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🌩️ Cloudinary Integration
+SpookyPFP leverages the power of Cloudinary to handle images efficiently:
 
-## Learn More
+Real-time image uploads: Users can upload images from their device, which are securely stored in Cloudinary.
+Automatic transformation: Once the image is in the cloud, Cloudinary applies custom transformations like adding spooky backgrounds and cartoon effects.
+Web optimization: Cloudinary delivers optimized images, improving performance across different device types.
+Instant download: After generating the avatar, you can download the final version with just one click.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
