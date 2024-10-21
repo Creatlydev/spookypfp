@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 
-import { CldImage } from "next-cloudinary";
 import CustomAvatar from "./CustomAvatar";
 import { useCallback, useEffect, useState } from "react";
 import animationData from '@/public/lotties/ghost.json'
 import LottieAnimation from "./LottieAnimation";
 import Link from "next/link";
 import { backgroundPrompts, pokemonPrompts, prompts, skullPrompts, VERSION } from "@/consts";
+import ImageGenerate from "./ImageGenerate";
 
 interface CustomAvatarProps {
   id: string;
@@ -43,7 +43,7 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
     setPrompt(randomPrompt)
   }, [])
 
-  const handleError = useCallback((event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  const handleError = useCallback(() => {
     setError(true)
     setLoading(false)
   }, [])
@@ -89,112 +89,47 @@ export default function SpookyAvatar ({id}: CustomAvatarProps) {
         {
           prompt && promptScene && (
             <div className="avatars flex justify-start overflow-x-auto items-center md:justify-center gap-4">
-              <CldImage
-                alt='Spooky image generated'
-                width={250}
-                className={`${loading || error ? 'h-0 w-0' : 'h-auto'} transition-all`}
-                height={250}
-                src={id}
-                quality='auto:low'
-                crop={{
-                  aspectRatio: 1,
-                  type:"thumb",
-                  gravity:"faces",
-                  width: 250,
-                  source: true
-                }}
-                radius={rounded ? 'max' : '0'}
-                background='transparent'
-                effects={[{
-                  outline: '5',
-                  color: 'orange',
-                }]}
-                replace={{
-                  from: 'people',
-                  to: prompt,
-                  preserveGeometry: true
-                }}
-                replaceBackground={{
-                  prompt: promptScene,
-                  seed: 5
-                }}
-                cartoonify= {true}
-                
-                format='png'
-                onLoad={() => setLoading(false)}
-                onError={handleError}
+              <ImageGenerate
+                loading={loading}
+                setLoading={setLoading}
+                rounded={rounded}
+                error={error}
+                handleError={handleError}
+                prompt={prompt}
+                promptScene={promptScene}
+                id={id}
+                effects={
+                  {
+                    cartoonify: true
+                  }
+                }
               />
 
-              <CldImage
-                  alt='Spooky image generated'
-                  width={250}
-                  className={`${loading || error ? 'h-0 w-0' : 'h-auto'} transition-all`}
-                  height={250}
-                  src={id}
-                  quality='auto:low'
-                  crop={{
-                    aspectRatio: 1,
-                    type:"thumb",
-                    gravity:"faces",
-                    width: 250,
-                    source: true
-                  }}
-                  radius={rounded ? 'max' : '0'}
-                  background='transparent'
-                  effects={[{
-                    outline: '5',
-                    color: 'orange',
-                  }]}
-                  replace={{
-                    from: 'people',
-                    to: prompt,
-                    preserveGeometry: true
-                  }}
-                  replaceBackground={{
-                    prompt: promptScene,
-                    seed: 5
-                  }}
-
-                  format='png'
-                  onLoad={() => setLoading(false)}
-                  onError={handleError}
+              <ImageGenerate
+                loading={loading}
+                setLoading={setLoading}
+                rounded={rounded}
+                error={error}
+                handleError={handleError}
+                prompt={prompt}
+                promptScene={promptScene}
+                id={id}
               />
 
-              <CldImage
-                  alt='Spooky image generated'
-                  width={250}
-                  className={`${loading || error ? 'h-0 w-0' : 'h-auto'} transition-all`}
-                  height={250}
-                  src={id}
-                  quality='auto:low'
-                  crop={{
-                    aspectRatio: 1,
-                    type:"thumb",
-                    gravity:"faces",
-                    width: 250,
-                    source: true
-                  }}
-                  radius={rounded ? 'max' : '0'}
-                  background='transparent'
-                  effects={[{
-                    outline: '5',
-                    color: 'orange',
-                  }]}
-                  replace={{
-                    from: 'people',
-                    to: prompt,
-                    preserveGeometry: true
-                  }}
-                  replaceBackground={{
-                    prompt: promptScene,
-                    seed: 5
-                  }}
-
-                  sepia= {true}
-
-                  format='png'
-                  onLoad={() => setLoading(false)}
-                  onError={handleError}
+              <ImageGenerate
+                loading={loading}
+                setLoading={setLoading}
+                rounded={rounded}
+                error={error}
+                handleError={handleError}
+                prompt={prompt}
+                promptScene={promptScene}
+                id={id}
+                effects={
+                  {
+                    sepia: true
+                  }
+                }
               />
             </div>
           )
